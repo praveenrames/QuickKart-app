@@ -16,7 +16,7 @@ const Cart = () => {
         <Header />
         <div className="container mx-auto px-4 py-20 text-center">
           <ShoppingBag className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-          <h2 className="text-xl font-bold mb-2">Your cart is empty</h2>
+          <h2 className="text-xl font-bold mb-2">Your cart is emptys</h2>
           <p className="text-muted-foreground mb-4">Add some products to get started</p>
           <Button onClick={() => navigate("/")}>Continue Shopping</Button>
         </div>
