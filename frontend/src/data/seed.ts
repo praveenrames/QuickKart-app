@@ -35,8 +35,8 @@ export const defaultProducts: Product[] = [
     highlights: ["6mm thickness", "Non-slip surface", "Eco-friendly material", "Carrying strap included"],
   },
   {
-    id: "p6", name: "Wireless Charging Pad", description: "Fast wireless charger compatible with all Qi-enabled devices.", price: 1499, discount: 30, category: "Electronics", brand: "ChargePro",
-    image: "https://images.unsplash.com/photo-1586816879360-004f5b0c51e3?w=400&h=400&fit=crop", rating: 4.1, stock: 50,
+    id: "p6", name: "Wireless Charging Pads", description: "Fast wireless charger compatible with all Qi-enabled devices.", price: 1499, discount: 30, category: "Electronics", brand: "ChargePro",
+    image: "https://tse2.mm.bing.net/th/id/OIP.VoDMEXvfytefiWbx1rO1mAHaEO?pid=Api&P=0&h=180", rating: 4.1, stock: 50,
     highlights: ["15W fast charging", "LED indicator", "Anti-slip base", "Universal compatibility"],
   },
   {

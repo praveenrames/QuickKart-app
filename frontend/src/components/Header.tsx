@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
-import { ShoppingBag, ShoppingCart, LogOut, User, LayoutDashboard } from "lucide-react";
+import { ShoppingBag, ShoppingCart, LayoutDashboard } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import ProfileMenu from "@/components/ProfileMenu";
 
 const Header = () => {
-  const { user, isAdmin, logout } = useAuth();
+  const { user, isAdmin } = useAuth();
   const { totalItems } = useCart();
   const navigate = useNavigate();
 
@@ -37,13 +38,7 @@ const Header = () => {
                   </Badge>
                 )}
               </Button>
-              <Button variant="ghost" size="sm" className="gap-1">
-                <User className="h-4 w-4" />
-                <span className="hidden sm:inline text-sm">{user.name}</span>
-              </Button>
-              <Button variant="outline" size="sm" onClick={() => { logout(); navigate("/login"); }}>
-                <LogOut className="h-4 w-4" />
-              </Button>
+              <ProfileMenu />
             </>
           ) : (
             <>

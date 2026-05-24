@@ -5,6 +5,7 @@ import { registerUser, loginUser } from "@/utils/api";
 interface AuthContextType {
   user: User | null;
   isAdmin: boolean;
+  loading: boolean;
   login: (email: string, password: string) => Promise<{ success: boolean; message?: string }>;
   register: (firstname: string, lastname: string, email: string, mobile: string, password: string) => Promise<boolean>;
   logout: () => void;
@@ -14,10 +15,12 @@ const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const stored = localStorage.getItem("ecom_user");
     if (stored) setUser(JSON.parse(stored));
+    setLoading(false);
   }, []);
 
   const register = async (firstname: string, lastname: string, email: string, mobile: string, password: string): Promise<boolean> => {
@@ -61,7 +64,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const isAdmin = user?.role === "admin";
 
   return (
-    <AuthContext.Provider value={{ user, isAdmin, login, register, logout }}>
+    <AuthContext.Provider value={{ user, isAdmin, loading, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -8,11 +8,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import ForgotPasswordModal from "@/pages/Auth/ForgotPasswordModal";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showForgotModal, setShowForgotModal] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -52,6 +54,13 @@ const Login = () => {
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
+              <button
+                type="button"
+                onClick={() => setShowForgotModal(true)}
+                className="text-sm text-primary hover:underline"
+              >
+                Forgot password?
+              </button>
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-3">
@@ -63,6 +72,11 @@ const Login = () => {
           </CardFooter>
         </form>
       </Card>
+      <ForgotPasswordModal
+        isOpen={showForgotModal}
+        onClose={() => setShowForgotModal(false)}
+        onSuccess={() => setShowForgotModal(false)}
+      />
     </div>
   );
 };
