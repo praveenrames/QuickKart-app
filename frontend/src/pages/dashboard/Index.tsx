@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import BannerSlider from "@/components/BannerSlider";
 
 const Index = () => {
   const { products } = useProducts();
@@ -58,6 +59,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <div className="container mx-auto px-4 py-6">
+        <BannerSlider />
         {/* Search */}
         <div className="flex gap-2 mb-6">
           <div className="relative flex-1">

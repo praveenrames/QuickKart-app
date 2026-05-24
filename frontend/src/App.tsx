@@ -7,18 +7,19 @@ import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 import { ProductProvider } from "@/context/ProductContext";
 import { ProtectedRoute, AdminRoute } from "@/components/ProtectedRoute";
-import Index from "./pages/Index";
+import Index from "./pages/dashboard/Index";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
-import ProductDetail from "./pages/ProductDetail";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
+import ResetPassword from "./pages/Auth/ResetPassword";
+import ProductDetail from "./pages/dashboard/ProductDetail";
+import Cart from "./pages/dashboard/Cart";
+import Checkout from "./pages/dashboard/Checkout";
 import AdminLayout from "./components/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProducts from "./pages/admin/AdminProducts";
 import AdminProductForm from "./pages/admin/AdminProductForm";
 import AdminCategories from "./pages/admin/AdminCategories";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/dashboard/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
               <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
                 <Route path="/" element={<ProtectedRoute><Index /></ProtectedRoute>} />
                 <Route path="/product/:id" element={<ProtectedRoute><ProductDetail /></ProtectedRoute>} />
                 <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
